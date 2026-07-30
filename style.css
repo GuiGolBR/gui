@@ -603,8 +603,11 @@ body {
 
     html,
     body {
-        overflow-y: hidden;
         overflow-x: hidden;
+    }
+
+    html {
+        background: radial-gradient(circle at top, #263289 0%, #090b15 55%, #040509 100%);
     }
 
     .container-main {
