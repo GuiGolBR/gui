@@ -653,14 +653,14 @@ img.emoji {
         order: 2;
         margin: 20px 0 0;
         min-width: unset;
-        width: calc(100% - 24px);
+        width: calc(100% - 100px);
     }
 
 
     /* Music third */
     .music-card {
         order: 3;
-        width: calc(100% - 24px);
+        width: calc(100% - 80px);
         margin-top: 20px;
     }
 
