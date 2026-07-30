@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gui's profile</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.css" />
+
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script>
+</head>
+<body>
+    <header id="adminHeader" class="admin-header" style="display:none;">
+        <a href="gimmicks.html">
+            Gimmicks Dashboard
+        </a>
+    </header>
+<div class="container-main">
+    <div class="profile-bio likes">
+        <p>
+            <span class="bio-label">Likes:</span><br>
+            • Ryomen Sukuna!!<br>
+            • JJK<br>
+            • Umamusume<br>
+            • Limbus Company<br>
+            • Ado<br>
+            • Hololive<br>
+            • Sakamoto Days<br>
+            • Kagurabachi<br>
+            • Pokémon<br>
+            • Dragon Ball<br>
+            • Dandadan<br>
+            • Gachiakuta<br>
+            • Project Sekai<br>
+            • Other anime/manga/games etc.
+        </p>
+    </div>
+    <div class="container">
+        <div class="profile-container">
+            <img id="profile-pic" alt="Discord profile picture">
+            <h1 id="profile-name">gui</h1>
+        </div>
+        <div class="profile-links">
+            <a class="profile-link tooltip"
+               href="https://twitter.com/guigol__"
+               target="_blank">
+
+                <img src="assets/twitter.webp" alt="Twitter">
+                <span class="tooltiptext">@guigol__</span>
+            </a>
+            <a class="profile-link tooltip"
+               href="https://discord.com/users/333695842760523776"
+               target="_blank">
+
+                <img src="assets/discord.webp" alt="Discord">
+                <span class="tooltiptext">@guigol</span>
+            </a>
+            <a class="profile-link tooltip"
+               href="https://tiktok.com/@guigol__"
+               target="_blank">
+
+                <img src="assets/tiktok.webp" alt="TikTok">
+                <span class="tooltiptext">@guigol_</span>
+            </a>
+            <a class="profile-link tooltip"
+               href="https://linktr.ee/guigol_"
+               target="_blank">
+
+                <img src="assets/linktree.webp" alt="Linktree">
+                <span class="tooltiptext">guigol_</span>
+            </a>
+        </div>
+        <div class="profile-bio">
+            <p>
+                <span class="bio-label">Name:</span> GuiGol / Gui<br>
+                <span class="bio-label">Pronouns:</span> he / they<br>
+                <span class="bio-label">Age:</span> <span id="age"></span><br>
+                <span class="bio-label">Nationality:</span> 🇧🇷 Brazilian<br>
+                <span class="bio-label">Fluent:</span> 🇧🇷 Portuguese / 🇺🇸 English<br>
+                <span class="bio-label">Partial:</span> 🇪🇸 Spanish / 🇯🇵 Japanese<br>
+                <span class="bio-label">Interests:</span> sometimes artist and editor<br>
+                <span class="bio-label">Study:</span> Computer Engineering student
+            </p>
+            <p id="dni">
+                <span class="bio-label">DNI:</span><br>
+                ► proshippers<br>
+                ► shedtwt<br>
+                ► weirdos in general
+            </p>
+        </div>
+    </div>
+    <div class="music-card">
+        <div class="music-card-header">
+            <span class="bio-label">Songs:</span>
+        </div>
+        <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6BEnpVB7g2j8mzWs3MC2kh?utm_source=generator"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+        <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/3RUxX7hD63Ln5QDmvTs9nJ?utm_source=generator"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+        <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/5ZQjLxRk8jNdkRtqyb3HaJ?utm_source=generator"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+<section class="gimmicks-section">
+    <div class="gimmicks-intro">
+        <h2>Gimmicks</h2>
+    </div>
+    <div class="gimmicks-grid">
+        <div class="gimmick-card">
+            <h3>Anonymous Messages</h3>
+            <form id="messageForm" class="gimmick-form">
+                <textarea
+                    id="messageInput"
+                    placeholder="Leave a message...">
+                </textarea>
+                <button type="submit">
+                    Send
+                </button>
+            </form>
+            <p id="messageStatus" class="small-note"></p>
+        </div>
+        <div class="gimmick-card">
+            <h3>Anonymous Drawing</h3>
+            <canvas
+                id="drawingCanvas"
+                width="320"
+                height="220">
+            </canvas>
+            <div class="drawing-colors">
+                <button
+                    class="color-btn"
+                    data-color="#000000"
+                    style="background:#000000">
+                </button>
+                <button
+                    class="color-btn"
+                    data-color="#ff0000"
+                    style="background:#ff0000">
+                </button>
+                <button
+                    class="color-btn"
+                    data-color="#0066ff"
+                    style="background:#0066ff">
+                </button>
+                <button
+                    class="color-btn"
+                    data-color="#00aa00"
+                    style="background:#00aa00">
+                </button>
+                <button
+                    class="color-btn"
+                    data-color="#ff00ff"
+                    style="background:#ff00ff">
+                </button>
+                <button
+                    class="color-btn"
+                    data-color="#ffa500"
+                    style="background:#ffa500">
+                </button>
+            </div>
+            <!-- Brush size -->
+            <div class="brush-size">
+                <label for="brushSize">
+                    Brush size:
+                </label>
+                <input
+                    id="brushSize"
+                    type="range"
+                    min="1"
+                    max="20"
+                    value="3">
+            </div>
+            <div class="drawing-actions">
+                <button
+                    id="submitDrawing"
+                    type="button">
+                    Submit Drawing
+                </button>
+                <button
+                    id="clearDrawing"
+                    type="button"
+                    class="secondary">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+if (window.twemoji) {
+    twemoji.parse(document.body);
+}
+</script>
+</body>
+</html>

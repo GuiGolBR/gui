@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.__SUPABASE_CONFIG = {
+            url: "https://mgmoesyjjxnooldfnlqv.supabase.co",
+            anonKey: "sb_publishable_zYRcsxDeJVEaMLtM-cXh2Q_x4YDRZHL"
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="login.js" defer></script>
+</head>
+<body>
+    <div class="page-shell">
+        <div class="login-card">
+            <a class="back-link" href="index.html">← back to profile</a>
+
+            <div class="login-hero">
+                <h1>Admin Login</h1>
+                <p>Sign in to view anonymous messages and drawings.</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <label class="auth-field">
+                    <span>Email</span>
+                    <input id="email" type="email" placeholder="you@example.com" required>
+                </label>
+
+                <label class="auth-field">
+                    <span>Password</span>
+                    <input id="password" type="password" placeholder="••••••••" required>
+                </label>
+
+                <button type="submit" class="auth-button">Sign in</button>
+            </form>
+
+            <p id="statusMessage" class="status-message" aria-live="polite">
+                Enter your Supabase admin credentials.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
