@@ -109,6 +109,9 @@ clearCanvas();
 let drawing = false;
 
 ctx.strokeStyle = "#000000";
+document
+    .querySelector('.color-btn[data-color="#000000"]')
+    ?.classList.add("active");
 ctx.lineWidth = 3;
 ctx.lineCap = "round";
 ctx.lineJoin = "round";
@@ -206,9 +209,18 @@ if (clearButton) {
 
 const colorButtons = document.querySelectorAll(".color-btn");
 
+function selectColor(button, color) {
+    colorButtons.forEach((btn) => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    ctx.strokeStyle = color;
+}
+
 colorButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        ctx.strokeStyle = button.dataset.color;
+        selectColor(button, button.dataset.color);
     });
 });
 

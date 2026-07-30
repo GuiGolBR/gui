@@ -418,7 +418,7 @@ img.emoji {
     background: linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255,255,255,0.12);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    
+
 }
 
 .dashboard-image {
@@ -523,6 +523,22 @@ img.emoji {
     border: 2px solid white;
     cursor: pointer;
 }
+
+.color-btn.active {
+    border: 3px solid #7c93ff;
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(124, 147, 255, 0.7);
+}
+
+.eraser-btn {
+    background: none;
+    color: #000;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .color-btn:hover {
     transform: scale(1.15);
@@ -630,6 +646,10 @@ body {
         width: 100%;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    .profile-bio {
+        flex-direction: column;
     }
 
     .profile-container {
