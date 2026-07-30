@@ -592,3 +592,109 @@ img.emoji {
 #dni {
     margin-left: 30px;
 }
+
+@media (max-width: 800px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container-main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: auto;
+        padding: 20px 12px;
+    }
+
+    /* Profile container first */
+    .container {
+        order: 1;
+        min-height: auto;
+        width: 100%;
+        padding: 0;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        width: fit-content;
+        padding: 20px;
+        gap: 12px;
+    }
+
+    #profile-name {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 1.8rem;
+    }
+
+    #profile-pic {
+        width: 130px;
+        height: 130px;
+    }
+
+    .profile-links {
+        margin-top: 15px;
+        gap: 8px;
+    }
+
+    .profile-link {
+        margin: 0 5px;
+    }
+
+    .profile-link img {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    /* Likes second */
+    .likes {
+        order: 2;
+        margin: 20px 0 0;
+        min-width: unset;
+        width: 50%;
+    }
+
+
+    /* Music third */
+    .music-card {
+        order: 3;
+        width: calc(100% - 24px);
+        margin-top: 20px;
+    }
+
+    .music-card iframe {
+        width: 100%;
+    }
+
+
+    /* Gimmicks last */
+    .gimmicks-section {
+        width: calc(100% - 24px);
+        margin: 20px auto 40px;
+        padding: 18px;
+    }
+
+    .gimmicks-grid {
+        width: 100%;
+    }
+
+    .gimmick-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* Drawing fixes */
+    #drawingCanvas {
+        max-width: 100%;
+    }
+
+
+    /* Prevent DNI text from pushing layout */
+    #dni {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
