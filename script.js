@@ -265,11 +265,26 @@ async function submitDrawing() {
             throw uploadResult.error;
         }
 
-        const insertResult = await supabaseClient
-            .from("drawings")
-            .insert({
-                image_url: fileName
-            });
+        const { data: signedUrlData, error: signedError } =
+            await supabaseClient.storage
+                .from("drawings")
+                .createSignedUrl(
+                    fileName,
+                    60 * 60
+                );
+
+
+        if (signedError) {
+            throw signedError;
+        }
+
+
+        const insertResult =
+            await supabaseClient
+                .from("drawings")
+                .insert({
+                    image_url: signedUrlData.signedUrl
+                });
 
         if (insertResult.error) {
             throw insertResult.error;
