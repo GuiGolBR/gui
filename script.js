@@ -283,7 +283,7 @@ async function submitDrawing() {
             await supabaseClient
                 .from("drawings")
                 .insert({
-                    image_url: signedUrlData.signedUrl
+                    image_url: fileName
                 });
 
         if (insertResult.error) {
