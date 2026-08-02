@@ -255,39 +255,34 @@ async function submitDrawing() {
 
         const fileName = crypto.randomUUID() + ".png";
 
-        const uploadResult = await supabaseClient.storage
-            .from("drawings")
-            .upload(fileName, blob, {
-                contentType: "image/png"
-            });
+        console.log("Uploading file:", fileName);
 
-        if (uploadResult.error) {
-            throw uploadResult.error;
-        }
-
-        const { data: signedUrlData, error: signedError } =
+        const { data: uploadData, error: uploadError } =
             await supabaseClient.storage
                 .from("drawings")
-                .createSignedUrl(
-                    fileName,
-                    60 * 60
-                );
+                .upload(fileName, blob, {
+                    contentType: "image/png"
+                });
 
+        console.log("UPLOAD:", uploadData, uploadError);
 
-        if (signedError) {
-            throw signedError;
+        if (uploadError) {
+            throw uploadError;
         }
 
+        console.log("Inserting into drawings table...");
 
-        const insertResult =
+        const { data: insertData, error: insertError } =
             await supabaseClient
                 .from("drawings")
                 .insert({
                     image_url: fileName
-                });
+                })
 
-        if (insertResult.error) {
-            throw insertResult.error;
+        console.log("INSERT:", insertData, insertError);
+
+        if (insertError) {
+            throw insertError;
         }
 
         button.textContent = "Drawing Sent!";
